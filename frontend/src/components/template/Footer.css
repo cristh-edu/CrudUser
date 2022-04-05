@@ -1,0 +1,15 @@
+footer.footer{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 55px;
+    box-shadow: var(--shadow);
+}
+
+footer.footer span{
+    padding: 0 0 0 15px;
+}
+
+footer.footer a{
+    text-decoration: none;
+}
