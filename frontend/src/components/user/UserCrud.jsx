@@ -54,7 +54,7 @@ export default class UserCrud extends Component{
     renderForm() {
         return (
             <div className="form">
-                <h3 className='text-center'>Formulário Usuário</h3>
+                <h3 className='text-center fw-bolder'>Formulário Usuário</h3>
                 <div className="row">
                     <div className="col-12 col-md-6">
                         <div className="form-group">
@@ -82,11 +82,11 @@ export default class UserCrud extends Component{
                 </div>
                 <div className="row mt-4">
                     <div className="d-flex justify-content-end">
-                        <button className="btn btn-primary me-2"
+                        <button className="btn btn-primary ms-2"
                             onClick={e=> this.save(e)}>
                             Salvar
                         </button>
-                        <button className="btn btn-secondary"
+                        <button className="btn btn-secondary ms-2"
                             onClick={e=> this.clear(e)}>
                             Cancelar
                         </button>
@@ -110,22 +110,22 @@ export default class UserCrud extends Component{
 
     renderTable(){
         return (
-            <>
-            <h3 className='text-center mt-4'>Tabela Usuário</h3>
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>E-mail</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.renderRows()}
-                </tbody>
-            </table>
-            </>
+            <div className='table-responsive'>
+                <h3 className='text-center mt-4 fw-bolder'>Tabela Usuário</h3>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th className="col-1">ID</th>
+                            <th className="col-5">Nome</th>
+                            <th className="col-5">E-mail</th>
+                            <th className="col-1 text-center" colspan="2">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.renderRows()}
+                    </tbody>
+                </table>
+            </div>
         )
     }
 
@@ -133,14 +133,16 @@ export default class UserCrud extends Component{
         return this.state.list.map(user=>{
             return(
                 <tr key={user.id}>
-                    <td>{user.id}</td>
-                    <td>{user.name}</td>
-                    <td>{user.email}</td>
-                    <td>
-                        <button className="btn btn-warning"
+                    <td className="col">{user.id}</td>
+                    <td className="col">{user.name}</td>
+                    <td className="col">{user.email}</td>
+                    <td className="col">
+                        <button className="btn btn-warning ms-2"
                             onClick={() => this.load(user)}>
                             <i className="fa fa-pencil"></i>
                         </button>
+                    </td>
+                    <td className="col">    
                         <button className="btn btn-danger ms-2"
                             onClick={() => this.remove(user)}>
                             <i className="fa fa-trash"></i>
